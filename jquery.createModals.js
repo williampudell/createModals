@@ -1,13 +1,46 @@
+/*
+ * Plugin para a Criação de Modal dinâmicamente
+ * https://github.com/williampudell/createModals
+ *
+ * Copyright 2016, William Pudell
+ *
+ * v 0.1
+ * 2016-09-01
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 (function($){
     $.createModals = function(settings){
+        /*
+         * Configurações Basicas para a criação de um Modal
+         * modalId = Id do Modal
+         * modalTitle.hasTitle = Utilizado para Exibir ou Ocultar o Titulo do Modal
+         * modalTitle.modalTitleContent = Texto do Titulo do Modal
+         * modalBody.hasBody = Utilizado para Exibir ou Ocultar o Corpo do Modal
+         * modalBody.modalBodyContent = Texto do Corpo do Modal
+         * modalFooter.hasFooter = Utilizado para Exibir ou Ocultar o Rodapé do Modal
+         * modalFooter.modalFooterContent = Texto do Rodapé do Modal
+         */
         var config = {
             'modalId':'modalBasic',
             'modalTitle':{
                 'hasTitle': true,
                 'modalTitleContent': 'Carregando'
             },
-            'modalContent':{
-                'hasContent': false,
+            'modalBody':{
+                'hasBody': false,
                 'modalBodyContent':''
             },
             'modalFooter': {
@@ -36,8 +69,8 @@
             content.append(header);
         }
 
-        if(config.modalContent.hasContent){
-            body.append($("<div />").addClass("row").append($("<div />").addClass("col-lg-12").html(config.modalContent.modalBodyContent)));
+        if(config.modalBody.hasBody){
+            body.append($("<div />").addClass("row").append($("<div />").addClass("col-lg-12").html(config.modalBody.modalBodyContent)));
             content.append(body);
         }
 
